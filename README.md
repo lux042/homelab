@@ -2,9 +2,9 @@
 
 **Self-hosted infrastructure centered on accessible resources, digital independence, and responsible data stewardship.**
 
-I build and maintain a community-facing home lab focused on making digital resources easier to organize, preserve, and access. My work combines Linux administration, containerized applications, private networking, and digital library services with a broader interest in community-centered technology.
+I operate self-hosted media and digital-library services for a **small community** through **Jellyfin** and **Calibre-Web**. I manage the infrastructure behind those services, including the UGREEN NAS, Docker containers, Linux administration, and the **Calibre backend** that supports the digital library.
 
-The project is community-facing in its mission and use. It brings together practical service hosting and a commitment to shared knowledge, responsible stewardship, and access. Specific services may still require authentication or private-network access; community-facing does not mean every endpoint is publicly exposed.
+This is an actively used, community-facing environment—not just a demonstration or proposed service. Its purpose is to help people access and organize shared digital resources while giving me direct responsibility for the systems that support them. Specific services may still require authentication or private-network access; community-facing does not mean every endpoint is publicly exposed.
 
 ## At a glance
 
@@ -20,7 +20,7 @@ The project is community-facing in its mission and use. It brings together pract
 
 ## Why this project exists
 
-Access to information depends on more than an application interface. It also depends on storage, network availability, maintainability, portability, and the choices made about who controls data. I use my home lab to understand these foundations firsthand and to practice building services that prioritize users rather than platform lock-in.
+Access to information depends on more than an application interface. It also depends on storage, network availability, maintainability, portability, and the choices made about who controls data. I apply these principles while operating services for real community members, balancing usability with the responsibility of maintaining their supporting infrastructure.
 
 My guiding principles:
 
@@ -49,9 +49,9 @@ flowchart TD
 
 ## Technical case studies
 
-### 1. A self-hosted digital library
+### 1. A community-facing digital library
 
-I deployed Calibre and Calibre-Web as containerized services on my NAS, using persistent storage to manage digital book collections. This project involved distinguishing the Calibre content server from the Calibre-Web frontend, configuring container ports and volumes, and testing connectivity.
+I deployed Calibre and Calibre-Web as containerized services on my NAS, using persistent storage to manage digital book collections. **I administer the Calibre backend**, while community members access library resources through Calibre-Web. This project involved distinguishing the Calibre content server from the Calibre-Web frontend, configuring container ports and volumes, and testing connectivity.
 
 **Skills demonstrated:** Docker configuration, persistent volumes, service architecture, troubleshooting, and digital collection management.
 
@@ -67,7 +67,7 @@ I connected trusted devices through Tailscale and configured Tailscale Serve to 
 
 ### 3. Media services and operational ownership
 
-I operate Jellyfin in Docker as part of my self-hosted environment. Maintaining the service alongside other applications provides hands-on experience with container lifecycle management and the operational tradeoffs of managing resources independently.
+I operate Jellyfin in Docker as a media service used by a small community. Maintaining the service alongside other applications provides hands-on experience with container lifecycle management and the operational tradeoffs of managing resources independently.
 
 **Skills demonstrated:** Container operations, Linux administration, and application maintenance.
 
@@ -90,7 +90,7 @@ This repository documents architecture and lessons learned, **not live credentia
 - [ ] Add sanitized, reproducible Docker Compose examples
 - [ ] Document a tested backup and recovery procedure
 - [ ] Add monitoring and service-health documentation
-- [ ] Explore an authorized, public-domain digital commons prototype
+- [ ] Explore ways to expand access to appropriately licensed or public-domain resources
 
 ## Related projects
 
