@@ -1,27 +1,33 @@
-# Architecture and trust boundaries
+# Architecture and access boundaries
 
-This is a **conceptual** overview of the current home lab. The project serves a community-facing purpose; this diagram documents the confirmed private-network access path, not every possible access method.
+This conceptual diagram distinguishes the **community-facing interfaces** from the **Calibre backend that I administer**. It documents a verified Tailscale access path without implying that every community member necessarily uses that path.
 
 ```mermaid
-flowchart LR
-    Clients[Authorized community users / devices] -->|Tailscale private network| Host[UGREEN NAS]
-    Host -->|Docker| CW[Calibre-Web]
-    Host -->|Docker| C[Calibre]
-    Host -->|Docker| J[Jellyfin]
-    Host --> Vol[(Persistent storage)]
-    CW --> Vol
-    C --> Vol
-    J --> Vol
-    Clients -->|HTTPS via Tailscale Serve| CW
+flowchart TD
+    Members[Community members] --> Interfaces[Community-facing services]
+    Interfaces --> CW[Calibre-Web]
+    Interfaces --> Jellyfin[Jellyfin]
+    CW --> Library[(Shared library storage)]
+    Admin[Backend administration] --> Calibre[Calibre]
+    Calibre --> Library
+    NAS[UGREEN NAS / Linux] --> Docker[Docker runtime]
+    Docker --> CW
+    Docker --> Calibre
+    Docker --> Jellyfin
+    NAS --> Library
+    Devices[Authorized tailnet devices] -->|Tailscale Serve / HTTPS| CW
 ```
 
-## Boundaries
+## What is confirmed
 
-- **Clients:** This diagram covers authorized devices using the private tailnet. Other community access arrangements have not yet been documented.
-- **Host:** The NAS runs services and stores application data.
-- **Containers:** Applications have separate runtime configurations and persistent storage mappings.
-- **HTTPS endpoint:** Tailscale Serve proxies Calibre-Web for tailnet access; this particular endpoint is tailnet-only; that does not define the accessibility of the whole project.
+- A UGREEN NAS hosts Docker-based Jellyfin, Calibre, and Calibre-Web services.
+- A small community uses Jellyfin and Calibre-Web.
+- I administer the Calibre backend.
+- Tailscale Serve provides an HTTPS path to Calibre-Web within the private tailnet.
+- The services use persistent storage.
 
-## To verify before publishing more detail
+## Access and security boundaries
 
-Confirm container-to-host port mappings, storage paths, backup strategy, and access-control policies before adding sanitized configurations. Do not publish private addresses, credentials, device identifiers, or personal collection contents.
+Community-facing means that people actually use the services; it **does not** imply anonymous public access. The diagram shows the documented private-network route separately from the community-facing service relationship. Other community access methods are not specified here.
+
+Before adding deployment instructions, verify actual access controls, service mappings, and backup procedures. Never publish credentials, private network addresses, device identifiers, or community members' personal information.
