@@ -2,11 +2,11 @@
 
 ## Problem
 
-I wanted a digital library infrastructure that could support organized, accessible collections for authorized users while maintaining control of the underlying files and services.
+I needed to support a digital library used by a small community through Calibre-Web while maintaining control of the underlying files and services.
 
 ## Approach
 
-I deployed Calibre and Calibre-Web using Docker on a UGREEN NAS. Calibre provides collection management and a content server; Calibre-Web offers a browser-oriented interface. Their different service roles required attention to port mappings, container configuration, and shared book storage.
+I deployed Calibre and Calibre-Web using Docker on a UGREEN NAS. I manage the Calibre backend, which provides collection management and a content server; community members use the browser-oriented Calibre-Web frontend. Their different service roles required attention to port mappings, container configuration, and shared book storage.
 
 ## Engineering lessons
 
@@ -16,7 +16,7 @@ I deployed Calibre and Calibre-Web using Docker on a UGREEN NAS. Calibre provide
 
 ## Outcome
 
-I established connectivity to the Calibre services and configured access to Calibre-Web. The documented implementation supports digital collection access. The repository does not yet specify the community's access model, lending permissions, or content licensing.
+I established connectivity to the Calibre services and configured access to Calibre-Web, which is used by a small community. I maintain the backend that supports that access. The repository does not yet specify the community's access model, lending permissions, or content licensing.
 
 ## Next steps
 
