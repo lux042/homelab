@@ -1,6 +1,6 @@
 # Home Lab | Infrastructure for Accessible Knowledge
 
-**Self-hosted infrastructure centered on accessible resources, digital independence, and responsible data stewardship.**
+**Community-facing digital library and media infrastructure | Docker · Linux · NAS · Secure networking**
 
 I operate self-hosted media and digital-library services for a **small community** through **Jellyfin** and **Calibre-Web**. I manage the infrastructure behind those services, including the UGREEN NAS, Docker containers, Linux administration, and the **Calibre backend** that supports the digital library.
 
@@ -36,26 +36,29 @@ See [the architecture overview](architecture/README.md) for a diagram and trust-
 
 ```mermaid
 flowchart TD
-    Devices[Authorized users and devices] -->|Encrypted private connectivity| Tail[Tailscale tailnet]
-    Tail --> NAS[UGREEN NAS / Linux host]
-    NAS --> Docker[Docker services]
-    Docker --> Calibre[Calibre content server]
-    Docker --> Web[Calibre-Web]
-    Docker --> Jellyfin[Jellyfin]
-    Tail -->|Tailscale Serve / HTTPS| Web
-    NAS --> Storage[(Persistent storage)]
-    Docker --> Storage
+    Community[Small community] --> Services[Community-facing services]
+    Services --> Web[Calibre-Web]
+    Services --> Jellyfin[Jellyfin]
+    Admin[Backend administration] --> Calibre[Calibre]
+    Web --> Books[(Library storage)]
+    Calibre --> Books
+    NAS[UGREEN NAS / Linux] --> Docker[Docker]
+    Docker --> Web
+    Docker --> Calibre
+    Docker --> Jellyfin
+    NAS --> Books
+    Tailnet[Authorized tailnet devices] -->|Tailscale Serve / HTTPS| Web
 ```
 
 ## Technical case studies
 
-### 1. A community-facing digital library
+### 1. Calibre backend administration for a community digital library
 
-I deployed Calibre and Calibre-Web as containerized services on my NAS, using persistent storage to manage digital book collections. **I administer the Calibre backend**, while community members access library resources through Calibre-Web. This project involved distinguishing the Calibre content server from the Calibre-Web frontend, configuring container ports and volumes, and testing connectivity.
+I operate Calibre and Calibre-Web as containerized services on my NAS. **Community members use Calibre-Web; I administer the Calibre backend and maintain its supporting infrastructure.** Configuring the environment required troubleshooting separate service roles, Docker port mappings, persistent storage, and connectivity.
 
 **Skills demonstrated:** Docker configuration, persistent volumes, service architecture, troubleshooting, and digital collection management.
 
-[Read the case study](docs/digital-library.md)
+[Read the Calibre backend case study](docs/digital-library.md)
 
 ### 2. Private remote access with HTTPS
 
@@ -91,6 +94,7 @@ This repository documents architecture and lessons learned, **not live credentia
 - [ ] Document a tested backup and recovery procedure
 - [ ] Add monitoring and service-health documentation
 - [ ] Explore ways to expand access to appropriately licensed or public-domain resources
+- [ ] Explore a physical-media scanning workflow for authorized materials
 
 ## Related projects
 
