@@ -2,7 +2,7 @@
 
 ## Problem
 
-I wanted a personal digital library that I could organize and access across trusted devices while maintaining control of the underlying files and services.
+I wanted a digital library infrastructure that could support organized, accessible collections for authorized users while maintaining control of the underlying files and services.
 
 ## Approach
 
@@ -16,7 +16,7 @@ I deployed Calibre and Calibre-Web using Docker on a UGREEN NAS. Calibre provide
 
 ## Outcome
 
-I established connectivity to the Calibre services and configured access to Calibre-Web. This is a personal collection, not a public lending system.
+I established connectivity to the Calibre services and configured access to Calibre-Web. The documented implementation supports digital collection access. The repository does not yet specify the community's access model, lending permissions, or content licensing.
 
 ## Next steps
 
