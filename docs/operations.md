@@ -19,4 +19,4 @@ A UGREEN NAS hosts Docker-based services including Jellyfin, Calibre, and Calibr
 - Health checks and monitoring
 - Accessibility and usability observations
 
-These are documentation goals, not claims that all processes are already automated or tested.
+These are documentation goals.
