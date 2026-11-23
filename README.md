@@ -2,9 +2,9 @@
 
 **Self-hosted infrastructure centered on accessible resources, digital independence, and responsible data stewardship.**
 
-I build and maintain a personal home lab to explore how practical infrastructure decisions can make digital resources easier to organize, preserve, and access. My work combines Linux administration, containerized applications, private networking, and digital library services with a broader interest in community-centered technology.
+I build and maintain a community-facing home lab focused on making digital resources easier to organize, preserve, and access. My work combines Linux administration, containerized applications, private networking, and digital library services with a broader interest in community-centered technology.
 
-This is a **private, personal learning environment**, not a public library or community-facing production service. Its architecture and design principles are relevant to educational institutions, libraries, nonprofits, and other organizations working to make information more accessible.
+The project is community-facing in its mission and use. It brings together practical service hosting and a commitment to shared knowledge, responsible stewardship, and access. Specific services may still require authentication or private-network access; community-facing does not mean every endpoint is publicly exposed.
 
 ## At a glance
 
@@ -24,11 +24,11 @@ Access to information depends on more than an application interface. It also dep
 
 My guiding principles:
 
-- **Accessibility:** Make authorized personal resources convenient to access across devices.
+- **Accessibility:** Make appropriately authorized digital resources easier for community members to access across devices.
 - **Stewardship:** Treat digital collections as resources worth organizing and preserving.
 - **Independence:** Understand and control the infrastructure supporting those resources.
 - **Privacy and security:** Favor authenticated private access over unnecessary public exposure.
-- **Transferable learning:** Document approaches that could inform future library, education, and community technology work.
+- **Transferable learning:** Build and document infrastructure with real community use and relevance to libraries, education, and other resource-sharing initiatives.
 
 ## Architecture
 
@@ -36,7 +36,7 @@ See [the architecture overview](architecture/README.md) for a diagram and trust-
 
 ```mermaid
 flowchart TD
-    Devices[Authorized personal devices] -->|Encrypted private connectivity| Tail[Tailscale tailnet]
+    Devices[Authorized users and devices] -->|Encrypted private connectivity| Tail[Tailscale tailnet]
     Tail --> NAS[UGREEN NAS / Linux host]
     NAS --> Docker[Docker services]
     Docker --> Calibre[Calibre content server]
@@ -51,7 +51,7 @@ flowchart TD
 
 ### 1. A self-hosted digital library
 
-I deployed Calibre and Calibre-Web as containerized services on my NAS, using persistent storage to manage a personal ebook collection. This project involved distinguishing the Calibre content server from the Calibre-Web frontend, configuring container ports and volumes, and testing connectivity.
+I deployed Calibre and Calibre-Web as containerized services on my NAS, using persistent storage to manage digital book collections. This project involved distinguishing the Calibre content server from the Calibre-Web frontend, configuring container ports and volumes, and testing connectivity.
 
 **Skills demonstrated:** Docker configuration, persistent volumes, service architecture, troubleshooting, and digital collection management.
 
@@ -101,4 +101,4 @@ This repository documents architecture and lessons learned, **not live credentia
 
 ---
 
-Built and documented by [lux042](https://github.com/lux042). This repository is a portfolio of a personal environment and is not an invitation to access the services it describes.
+Built and documented by [lux042](https://github.com/lux042). This repository documents community-facing infrastructure. Access to individual services is governed by their own permissions and availability.
