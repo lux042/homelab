@@ -2,7 +2,7 @@
 
 ## Problem
 
-I wanted to reach a self-hosted digital library from trusted devices without exposing the service directly to the public internet.
+I wanted an authenticated access path to a self-hosted digital library without requiring this particular service endpoint to be exposed directly to the public internet.
 
 ## Approach
 
@@ -17,7 +17,7 @@ I installed Tailscale on my NAS and client devices, verified the NAS's Tailscale
 
 ## Outcome
 
-Calibre-Web became available at a tailnet-only HTTPS endpoint to authorized devices. No private hostname or IP address is published here.
+Calibre-Web became available at a tailnet-only HTTPS endpoint to authorized devices. This documents one secure access path within a broader community-facing project, not necessarily its only access model. No private hostname or IP address is published here.
 
 ## Next steps
 
