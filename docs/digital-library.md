@@ -21,3 +21,4 @@ I established connectivity to the Calibre services and configured access to Cali
 ## Next steps
 
 Document sanitized Compose configurations, a tested backup/restore procedure, and accessibility considerations for the web interface.
+Interested in building a rig to for physical media scanning.
